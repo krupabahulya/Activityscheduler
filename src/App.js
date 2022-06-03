@@ -13,8 +13,9 @@ const App = () => {
     <AuthState>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
+          <Route index element={<Signup />} />
           <Route path="protected" element={<ProtectedRoute />}>
+            <Route path="Home" element={<Home />} />
             <Route path="new-activity" element={<CreateActivity />} />
           </Route>
           <Route path="login" element={<Login />} />

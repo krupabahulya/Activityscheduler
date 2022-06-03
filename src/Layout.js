@@ -30,18 +30,13 @@ const Layout = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarsExample02">
             <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <NavLink to="/" className="nav-link">
-                  {user ? `Welcome back, ${user.name}` : "Home"}
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/about" className="nav-link">
-                  About
-                </NavLink>
-              </li>
               {isAuthenticated ? (
                 <>
+                  <li className="nav-item">
+                    <NavLink to="/protected/home" className="nav-link">
+                      {user ? `Welcome back, ${user.name}` : "Home"}
+                    </NavLink>
+                  </li>
                   <li className="nav-item">
                     <NavLink to="/protected/new-activity" className="nav-link">
                       Create Activity

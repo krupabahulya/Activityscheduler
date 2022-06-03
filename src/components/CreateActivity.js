@@ -6,10 +6,9 @@ import { toast } from "react-toastify";
 
 const CreateActivity = () => {
   const navigate = useNavigate();
-  const [{ type, creator, performer, date }, setFormState] = useState({
+  const [{ type, creator, performer }, setFormState] = useState({
     type: "",
     performer: "",
-    date: "",
   });
 
   const handleInputChange = (e) =>
@@ -18,9 +17,9 @@ const CreateActivity = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      if (!type || !performer || !date) return alert("All fields are required");
-      const data = JSON.stringify({ type, performer, date });
-      const { data: newactivity } = await axios.activity(
+      if (!type || !performer) return alert("All fields are required");
+      const data = JSON.stringify({ type, performer });
+      const { data: newActivity } = await axios.post(
         `${process.env.REACT_APP_API_URL}/activities`,
         data,
         {
@@ -30,14 +29,14 @@ const CreateActivity = () => {
           },
         }
       );
-      navigate(`/activity/${newactivity._id}`);
+      navigate("/");
 
       setFormState({
         type: "",
         performer: "",
-        date: "",
       });
     } catch (error) {
+      console.log(error);
       toast.error(error.response?.data.error || error.message);
     }
   };
@@ -74,7 +73,7 @@ const CreateActivity = () => {
               />
             </div>
           </div>
-          <div className="col-md-6">
+          {/*  <div className="col-md-6">
             <div className="mb-3">
               <label htmlFor="date" className="form-label">
                 Date
@@ -88,7 +87,20 @@ const CreateActivity = () => {
               />
             </div>
           </div>
-
+          <div className="col-md-6">
+            <div className="mb-3">
+              <label htmlFor="appt" className="form-label">
+                Time
+              </label>
+              <input
+                type="time"
+                className="form-control"
+                id="appt"
+                value={time}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div> */}
           <button type="submit" className="btn btn-primary">
             Submit
           </button>

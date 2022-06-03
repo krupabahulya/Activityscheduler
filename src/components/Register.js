@@ -22,7 +22,7 @@ const Register = () => {
       return toast.error("Please fill all the fields");
     await registerUser({ name, email, password });
   };
-  if (isAuthenticated) return <Navigate to="/protected/new-activity" replace />;
+  if (isAuthenticated) return <Navigate to="/login" replace />;
   if (loading) return <Loading />;
   return (
     <div className="container">
