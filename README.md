@@ -7,6 +7,6 @@
 
 # clone my front-end and backend-repo
 
-# change to the front repo folder to repo name and start the application with ## npm start, localhost:3000
+# change to the front repo folder to repo name and start the application with ##npm start, localhost:3000
 
-# change to backend repo folder and start the application with npm run dev, localhost:5050
+# change to backend repo folder and start the application with ##npm run dev, localhost:5050
